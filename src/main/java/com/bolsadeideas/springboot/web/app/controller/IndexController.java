@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bolsadeideas.springboot.web.app.models.Usuario;
@@ -50,14 +51,20 @@ public class IndexController {
 	}
 	
 	@RequestMapping("/perfiles")
-	public String listar(Model model) {
-		
+	public String listar(Model model) {		
+		return "perfiles";
+	}
+	
+	
+	// La lista de usuarios esta disponible para todos los metodos
+	@ModelAttribute("usuarios")
+	public List<Usuario> poblarUsuarios(){
 		List<Usuario> usuarios = Arrays.asList(
 				new Usuario("Noe","Vargas","vaesconoe@gmail.com"),
 				new Usuario("Hugo","Vargas","vaescohugo@gmail.com"),
 				new Usuario("Paulina","Pastrana","pastpau@gmail.com"));
-		
-		model.addAttribute("usuarios", usuarios);
-		return "perfiles";
+		return usuarios;
 	}
+	
+	
 }

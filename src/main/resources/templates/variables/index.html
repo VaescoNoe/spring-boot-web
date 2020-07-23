@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>http GET enviar variables en el path</title>
+</head>
+<body>
+	<ul>
+		<li><a th:href="@{/variables/string/}+'Hola Noe'">/variables/string/Hola Noe</a></li>
+		<li><a th:href="@{/variables/string/}+'Hola Hugo'">/variables/string/Hola Hugo</a></li>
+		<li><a th:href="@{/variables/string/}+'Hola Noe'+'/'+28">/variables/string/Hola Noe/28</a></li>
+		<li><a th:href="@{/variables/string/}+'Hola Hugo'+'/'+30">/variables/string/Hola Hugo/30</a></li>
+	</ul>
+</body>
+</html>

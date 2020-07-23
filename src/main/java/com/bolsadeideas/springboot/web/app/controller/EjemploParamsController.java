@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class EjemploParamsController {
 	
 	
-	@GetMapping("/")
+	@GetMapping({"/",""})
 	public String index() {
 		return "params/index";
 	}

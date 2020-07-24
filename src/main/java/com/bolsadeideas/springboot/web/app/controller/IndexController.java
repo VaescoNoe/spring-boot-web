@@ -1,9 +1,11 @@
 package com.bolsadeideas.springboot.web.app.controller;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +16,21 @@ import com.bolsadeideas.springboot.web.app.models.Usuario;
 
 @Controller
 @RequestMapping("/app")
+@PropertySources({
+	@PropertySource("classpath:indexControllerConfig.properties")
+})
 public class IndexController {
 
+	@Value("${texto.indexController.title}")
+	private String textoTitle;
+	@Value("${texto.indexController.encabeado}")
+	private String textoEncabezado;
+	@Value("${texto.indexController.perfil}")
+	private String textoPerfil;
+	
+	
 	//@RequestMapping(value="/index",method = RequestMethod.GET)
-	@GetMapping({"/index","/","/home"})
+	@GetMapping({"/index","/","/home",""})
 	public String index(Model model){
 		
 		//public String index(ModelMap model){
@@ -29,8 +42,8 @@ public class IndexController {
 			//mv.addObjec("title", "Spring con ModelAndView");
 			//mv.setVienName("index");
 		
-		model.addAttribute("title", "Spring");
-		model.addAttribute("encabezado", "Hola Spring Framework!");
+		model.addAttribute("title", textoTitle);
+		model.addAttribute("encabezado", textoEncabezado);
 			
 			//return mv;
 		return "index";
@@ -45,7 +58,7 @@ public class IndexController {
 		u.setEmail("vaesconoe@gmail.com");
 		
 		model.addAttribute("usuario", u);
-		model.addAttribute("perfil", "Perfil de usuario: ".concat(u.getNombre()));
+		model.addAttribute("perfil", textoPerfil.concat(u.getNombre()));
 		
 		return "perfil";
 	}

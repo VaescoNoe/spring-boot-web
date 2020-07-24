@@ -3,8 +3,11 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title th:text="${title}"></title>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 	</head>
 	<body>
-		<h1 th:text="${encabezado}"></h1>
+		<h1 class="color-rojo" th:text="${encabezado}"></h1>
+		<h2 class="color-azul">Decorando con estilos css recursos estáticos</h2>
+		<img th:src="@{/image/Spring-Framework.png}"/>
 	</body>
 </html>

@@ -1,0 +1,10 @@
+{"properties": [{
+  "name": "texto",
+  "type": "Object",
+  "description": "A description for 'texto'"
+},
+{
+  "name": "indexController",
+  "type": "Object",
+  "description": "A description for 'indexController'"
+}]}
